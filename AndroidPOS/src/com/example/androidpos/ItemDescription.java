@@ -1,5 +1,5 @@
 package com.example.androidpos;
-//By zee
+//By zeehj
 public class ItemDescription {
 	public ItemDescription(String name, int ID, int quantity,
 			String description, String unit, double price, double cost) {
