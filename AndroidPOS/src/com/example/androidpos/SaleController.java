@@ -3,7 +3,6 @@ package com.example.androidpos;
 public class SaleController {
 	private static SaleController instance = null;
 	private Sale sale;
-	private InventoryController IC = new InventoryController();
 	
 	private SaleController(){}
 	

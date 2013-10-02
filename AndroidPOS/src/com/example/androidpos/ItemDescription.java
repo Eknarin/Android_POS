@@ -1,6 +1,15 @@
 package com.example.androidpos;
-//By zee
+
 public class ItemDescription {
+
+	private String name;
+	private int ID;
+	private int quantity;
+	private String description;
+	private String unit;
+	private double price;
+	private double cost;
+	
 	public ItemDescription(String name, int ID, int quantity,
 			String description, String unit, double price, double cost) {
 		this.name = name;
@@ -11,14 +20,6 @@ public class ItemDescription {
 		this.price = price;
 		this.cost = cost;
 	}
-
-	private String name;
-	private int ID;
-	private int quantity;
-	private String description;
-	private String unit;
-	private double price;
-	private double cost;
 
 	public String getDiscription() {
 		return description;
