@@ -1,5 +1,5 @@
 package com.example.androidpos;
-//
+
 import android.R.bool;
 
 public class Inventory {
