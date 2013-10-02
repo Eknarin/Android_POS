@@ -34,6 +34,7 @@ public class MainActivity extends Activity {
 				
 				String[] row = dbc.select(_id);
 				
+				/**kuy*/
 				String kuy = "";
 				
 				for ( String x : row )
