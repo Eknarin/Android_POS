@@ -14,7 +14,7 @@ public class SaleController {
 		return instance;
 	}
 	
-	private boolean createSale(){
+	public boolean createSale(){
 		sale = Sale.getInstance();
 		if(sale!=null){
 			return true;
@@ -22,29 +22,31 @@ public class SaleController {
 		return false;
 	}
 	
-	private boolean addSaleLineItem(ItemDescription item){
-		if(sale.editSaleLineitem(item)){
+	public boolean addSaleLineItem(ItemDescription item){
+		if(sale.editSaleLineItem(item)){
 			return true;
 		}
 		return false;
 	}
 	
-	private boolean removeSaleLineItem(ItemDescription item){
-		if(sale.editSaleLineitem(item)){
+	public boolean removeSaleLineItem(ItemDescription item){
+		if(sale.editSaleLineItem(item)){
 			return true;
 		}
 		return false;
 	}
 	
-	private boolean finishTransacTion(){
-		sale.calculate();
+	public boolean finishTransacTion(){
+		return sale.calculate();
 	}
 	
-	private boolean updateSaleLedger(){
+	public boolean updateSaleLedger(){
+		return false;
 		
 	}
 	
-	private boolean updateInventory(){
+	public boolean updateInventory(){
+		return false;
 		
 	}
 }
