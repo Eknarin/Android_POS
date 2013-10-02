@@ -6,7 +6,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".InventoryActivity" >
+    tools:context=".MainActivity" >
 
     <TextView
         android:id="@+id/textView1"
@@ -22,6 +22,14 @@
         android:layout_below="@+id/textView1"
         android:layout_marginTop="60dp"
         android:text="Input name" />
+
+    <Button
+        android:id="@+id/addButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="Add" />
 
     <EditText
         android:id="@+id/text_id"
@@ -40,40 +48,5 @@
         android:layout_below="@+id/textView2"
         android:layout_marginTop="15dp"
         android:ems="10" />
-
-    <Button
-        android:id="@+id/addButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/text_name"
-        android:layout_centerVertical="true"
-        android:text="Add" />
-
-    <Button
-        android:id="@+id/editButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="16dp"
-        android:layout_toRightOf="@+id/removeButton"
-        android:text="Edit" />
-
-    <Button
-        android:id="@+id/removeButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="14dp"
-        android:layout_toRightOf="@+id/textView2"
-        android:text="Remove" />
-
-    <Button
-        android:id="@+id/selectButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/removeButton"
-        android:layout_marginTop="20dp"
-        android:layout_toLeftOf="@+id/editButton"
-        android:text="Select" />
 
 </RelativeLayout>

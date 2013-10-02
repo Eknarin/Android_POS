@@ -1,28 +1,25 @@
 package com.example.androidpos;
-
+//By zee
 public class ItemDescription {
-	
-	private String name;
-	private int _id;
-	private int quantity;
-	private String description;
-	private String unit;
-	private double price;
-	private double cost;
-	
-	public ItemDescription(String name, int _id, int quantity,
+	public ItemDescription(String name, int ID, int quantity,
 			String description, String unit, double price, double cost) {
-		
 		this.name = name;
-		this._id = _id;
+		this.ID = ID;
 		this.quantity = quantity;
 		this.description = description;
 		this.unit = unit;
 		this.price = price;
 		this.cost = cost;
-		
 	}
-	
+
+	private String name;
+	private int ID;
+	private int quantity;
+	private String description;
+	private String unit;
+	private double price;
+	private double cost;
+
 	public String getDiscription() {
 		return description;
 	}

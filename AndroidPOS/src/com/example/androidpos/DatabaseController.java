@@ -8,25 +8,15 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 public class DatabaseController extends SQLiteOpenHelper {
-	
+
 	private static final int DATABASE_VERSION = 1;
 	
 	private static final String DATABASE_NAME = "POS_DATABASE";
 	
 	private static final String TABLE_NAME = "INVENTORY_TABLE";
 	
-	private static DatabaseController instance = null;
-	
 	public DatabaseController(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
-	}	
-	
-	public static void setContext(Context context) {
-		instance = new DatabaseController(context);
-	}
-	
-	public static DatabaseController getInstance() {
-		return instance;
 	}
 
 	@Override
@@ -138,7 +128,7 @@ public class DatabaseController extends SQLiteOpenHelper {
 			/** Get database. */
 			SQLiteDatabase db = this.getWritableDatabase();
 			
-			long rows = db.delete(TABLE_NAME, "_id = ?", new String [] { String.valueOf(_id) } );
+			long rows = db.delete(TABLE_NAME, "id = ?", new String [] { String.valueOf(_id) } );
 			
 			/** Close database. */
 			db.close();
@@ -147,5 +137,4 @@ public class DatabaseController extends SQLiteOpenHelper {
 			return -1;
 		}
 	}
-	
 }

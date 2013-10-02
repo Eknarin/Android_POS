@@ -1,27 +1,18 @@
 package com.example.androidpos;
 
 public class InventoryController {
-	
-	private Inventory inventory;
+	private Inventory invent;
 
-	public InventoryController(Inventory inventory) {
-		this.inventory = inventory;
-	}
-	
-	public boolean addItem( String _id , String name) {
-		return inventory.create( _id , name );
+	public void addItem(String id, String name) {
+
 	}
 
-	public boolean editItem( String _id , String name) {
-		return inventory.edit( _id , name);
+	public void editItem() {
+
 	}
 
-	public boolean removeItem( String _id ) {
-		return inventory.remove( _id );
-	}
+	public void removeItem() {
 
-	public String [] getItem( String _id ) {
-		return inventory.select( _id );
 	}
 
 	public void searchItem() {
