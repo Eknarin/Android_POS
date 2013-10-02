@@ -1,6 +1,7 @@
 package com.example.androidpos;
 
 public class InventoryController {
+	
 	private Inventory inventory;
 
 	public InventoryController(Inventory inventory) {
@@ -22,6 +23,7 @@ public class InventoryController {
 	public String [] getItem( String _id ) {
 		return inventory.select(_id);
 	}
+	
 	public void searchItem() {
 
 	}

@@ -128,7 +128,7 @@ public class DatabaseController extends SQLiteOpenHelper {
 			/** Get database. */
 			SQLiteDatabase db = this.getWritableDatabase();
 			
-			long rows = db.delete(TABLE_NAME, "id = ?", new String [] { String.valueOf(_id) } );
+			long rows = db.delete(TABLE_NAME, "_id = ?", new String [] { String.valueOf(_id) } );
 			
 			/** Close database. */
 			db.close();

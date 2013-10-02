@@ -2,7 +2,6 @@ package com.example.androidpos;
 
 import android.os.Bundle;
 import android.app.Activity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -94,6 +93,9 @@ public class InventoryActivity extends Activity {
 		txt_id = (EditText) findViewById(R.id.text_id);
 		txt_name = (EditText) findViewById(R.id.text_name);
 		addButton = (Button) findViewById(R.id.addButton);
+		editButton = (Button) findViewById(R.id.editButton);
+		removeButton = (Button) findViewById(R.id.removeButton);
+		selectButton = (Button) findViewById(R.id.selectButton);
 		
 		inc = new InventoryController( new Inventory( new DatabaseController(this) ) );
 	}
