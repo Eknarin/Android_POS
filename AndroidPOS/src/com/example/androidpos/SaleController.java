@@ -15,7 +15,7 @@ public class SaleController {
 	}
 	
 	private boolean createSale(){
-		sale = new Sale();
+		sale = Sale.getInstance();
 		if(sale!=null){
 			return true;
 		}
@@ -29,12 +29,15 @@ public class SaleController {
 		return false;
 	}
 	
-	private boolean removeSaleLineItem(){
-		
+	private boolean removeSaleLineItem(ItemDescription item){
+		if(sale.editSaleLineitem(item)){
+			return true;
+		}
+		return false;
 	}
 	
 	private boolean finishTransacTion(){
-		
+		sale.calculate();
 	}
 	
 	private boolean updateSaleLedger(){
