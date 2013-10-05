@@ -1,5 +1,7 @@
 package com.example.androidpos;
 
+import java.util.List;
+
 public class InventoryController {
 	
 	private Inventory inventory;
@@ -24,12 +26,16 @@ public class InventoryController {
 		return inventory.select(_id);
 	}
 	
+	public String [][] getItemDescription() {
+		List<ItemDescription> list = inventory.getItemDescriptionList();
+		String [][] data = new String[ list.size() ][3];
+		for ( int i = 0 ; i < list.size() ; i++ )
+			data[i] = list.get(i).getDescription();
+		return data;
+	}
+	
 	public void searchItem() {
 
 	}
 
-	public String[] getItemDescription() {
-		return null;
-
-	}
 }
