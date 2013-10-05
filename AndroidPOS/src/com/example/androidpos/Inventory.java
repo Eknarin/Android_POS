@@ -5,11 +5,11 @@ import java.util.List;
 
 public class Inventory {
 	
-	private DatabaseController dbc;
+	private DatabaseHandler dbc;
 	private List<ItemDescription> list;
 	
 	/** Constructor. */
-	public Inventory( DatabaseController dbc ) {
+	public Inventory( DatabaseHandler dbc ) {
 		this.dbc = dbc;
 		list = new ArrayList<ItemDescription>();
 	}
@@ -23,24 +23,48 @@ public class Inventory {
 	public boolean create( String _id , String name , int quantity , String description , String unit , double price , double cost) {
 		ItemDescription item = new ItemDescription( name, quantity, description, unit, price, cost);
 		
-		if ( list.contains( item ) )
-			list.get( list.indexOf( item ) ).updateQuantity(1);
-		else
-			list.add( item );
+		if ( list.contains( item ) ) return false;
 		
-		if ( dbc.insert( _id, name ) > 0 )
+		list.add( item );
+		
+		if ( dbc.insert( _id, name, quantity, description, unit, price, cost ) > 0 )
+			return true;
+		return false;
+	}
+	
+	/**
+	 * Add existing item description item to database.
+	 * @param _id identify item.
+	 * @param name of item.
+	 * @return true if item is created in database, otherwise false.
+	 */
+	public boolean add( String _id , String name ) {
+		ItemDescription item = getItemByName( _id , name );
+		
+		if ( list.contains( item ) ) 
+			list.get( list.indexOf(item) ).updateQuantity(1);
+		else
+			return false;
+		
+		String [] data = item.getDescription();
+		
+		if ( dbc.insert( _id, name, Integer.parseInt(data[2]) , data[3], data[4], Double.parseDouble(data[5]) , Double.parseDouble(data[6]) ) > 0 )
 			return true;
 		return false;
 	}
 
 	/**
-	 * Edit item description and database item.
-	 * @param _id identify item.
-	 * @param name of item.
+	 * Edit item description.
+	 * @param name to get item from database
+	 * @param cost change cost of inventory item.
+	 * @param price change price of inventory item.
+	 * @param unit change unit of inventory item.
 	 * @return true if editing is finish, otherwise false.
 	 */
-	public boolean edit( String _id , String name ) {
-		if ( dbc.update( _id, name ) > 0 )
+	public boolean edit( String name, String unit, double price, double cost ) {
+		ItemDescription item = getItemByName( "" , name);
+		
+		if ( list.get( list.indexOf( item ) ).update( item ) )
 			return true;
 		return false;
 	}
@@ -87,6 +111,16 @@ public class Inventory {
 	 */
 	public ItemDescription getItemById( String _id ) {
 		String [] data = dbc.select( _id );
+		return new ItemDescription( data[1] , Integer.parseInt(data[2]) , data[3], data[4], Double.parseDouble(data[5]), Double.parseDouble(data[6]));
+	}
+	
+	/**
+	 * Get item description from item in database.
+	 * @param _id identify item.
+	 * @return item description by id.
+	 */
+	public ItemDescription getItemByName( String _id , String name ) {
+		String [] data = dbc.select( name );
 		return new ItemDescription( data[1] , Integer.parseInt(data[2]) , data[3], data[4], Double.parseDouble(data[5]), Double.parseDouble(data[6]));
 	}
 	

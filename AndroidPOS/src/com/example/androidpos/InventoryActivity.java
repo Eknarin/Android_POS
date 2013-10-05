@@ -49,7 +49,7 @@ public class InventoryActivity extends Activity {
 				String _id = txt_id.getText().toString();
 				String name = txt_name.getText().toString();
 				
-				if ( inc.editItem(_id, name) )
+				if ( inc.editItem(_id, name, 0, 0) )
 					Toast.makeText(InventoryActivity.this, "Edit Success" , Toast.LENGTH_LONG).show();
 				else
 					Toast.makeText(InventoryActivity.this, "Edit Failed" , Toast.LENGTH_LONG).show();
@@ -96,7 +96,7 @@ public class InventoryActivity extends Activity {
 		editButton = (Button) findViewById(R.id.editButton);
 		removeButton = (Button) findViewById(R.id.removeButton);
 		selectButton = (Button) findViewById(R.id.selectButton);
-		inc = new InventoryController( new Inventory( new DatabaseController(this) ) );
+		inc = new InventoryController( new Inventory( new DatabaseHandler(this) ) );
 	}
 
 	@Override
