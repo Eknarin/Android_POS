@@ -1,27 +1,17 @@
 package com.example.androidpos;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Sale {
 
-	private static Sale instance = null;
-	//private SaleLineItem SLI;
-	private ArrayList<SaleLineItem> SLI;
-	private Sale() {
-	}
-
-	public static Sale getInstance() {
-		if (instance == null) {
-			instance = new Sale();
-		}
-		return instance;
+	private List<SaleLineItem> list;
+	
+	public Sale() {
+		this.list = new ArrayList<SaleLineItem>();
 	}
 
 	public boolean createSaleLineItem() {
-		if (SLI == null) {
-			SLI = new ArrayList<SaleLineItem>();
-			return true;
-		}
 		return false;
 	}
 
@@ -30,10 +20,6 @@ public class Sale {
 	}
 
 	public boolean removeSaleLineItem() {
-		if (SLI != null) {
-			SLI = null;
-			return true;
-		}
 		return false;
 	}
 

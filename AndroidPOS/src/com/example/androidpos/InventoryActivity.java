@@ -34,7 +34,7 @@ public class InventoryActivity extends Activity {
 				String _id = txt_id.getText().toString();
 				String name = txt_name.getText().toString();
 				
-				if ( inc.addItem(_id, name) )
+				if ( inc.addItem(_id, name, 0, name, name, 0, 0) )
 					Toast.makeText(InventoryActivity.this, "Add Success" , Toast.LENGTH_LONG).show();
 				else
 					Toast.makeText(InventoryActivity.this, "Add Failed" , Toast.LENGTH_LONG).show();

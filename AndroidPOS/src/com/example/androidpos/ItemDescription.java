@@ -2,26 +2,20 @@ package com.example.androidpos;
 
 public class ItemDescription {
 
-	private String _id;
 	private String name;
 	private int quantity;
-	
-	/*
 	private String description;
 	private String unit;
 	private double price;
 	private double cost;
-	*/
 	
-	public ItemDescription(String _id , String name, int quantity/**,
-			String description, String unit, double price, double cost*/) {
-		this._id = _id;
+	public ItemDescription(String name, int quantity, String description, String unit, double price, double cost) {
 		this.name = name;
 		this.quantity = quantity;
-		/*this.description = description;
+		this.description = description;
 		this.unit = unit;
 		this.price = price;
-		this.cost = cost;*/
+		this.cost = cost;
 	}
 
 	public void updateQuantity( int quantity ) {
@@ -29,10 +23,9 @@ public class ItemDescription {
 	}
 	
 	public String [] getDescription() {
-		String [] data = new String[3];
-		data[0] = this._id;
-		data[1] = this.name;
-		data[2] = ""+this.quantity;
+		String [] data = new String[2];
+		data[0] = this.name;
+		data[1] = ""+this.quantity;
 		return data;
 	}
 	

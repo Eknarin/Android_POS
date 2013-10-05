@@ -23,7 +23,12 @@ public class DatabaseController extends SQLiteOpenHelper {
 	public void onCreate(SQLiteDatabase db) {
 		db.execSQL("CREATE TABLE " + TABLE_NAME + 
 					"( _id INTEGER PRIMARY KEY," +
-					" name TEXT(100) )");
+					" name TEXT(100)," +
+					" quantity INTEGER," +
+					" description TEXT(100)," +
+					" unit VARCHAR(255)," +
+					" price DOUBLE," +
+					" cost DOUBLE)");
 		Log.d("CREATE TABLE","Success" );
 	}
 
@@ -78,11 +83,11 @@ public class DatabaseController extends SQLiteOpenHelper {
 					
 			if ( cursor != null )
 				if ( cursor.moveToFirst() ) {
-					data = new String[ cursor.getCount() ][2];
+					data = new String[ cursor.getCount() ][7];
 					int i = 0;
 					do {
-						data[i][0] = cursor.getString(0);
-						data[i][1] = cursor.getString(1);
+						for ( int j = 0 ; j < 7 ; j++ )
+							data[i][j] = cursor.getString(j);
 						i++;
 					} while ( cursor.moveToNext() );
 				}

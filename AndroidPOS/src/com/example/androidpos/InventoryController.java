@@ -10,8 +10,8 @@ public class InventoryController {
 		this.inventory = inventory;
 	}
 
-	public boolean addItem(String _id, String name) {
-		return inventory.create(_id, name);
+	public boolean addItem(String _id, String name, int quantity , String description , String unit , double price , double cost) {
+		return inventory.create(_id, name, quantity, description, unit, price, cost);
 	}
 
 	public boolean editItem( String _id , String name ) {

@@ -1,42 +1,29 @@
 package com.example.androidpos;
 
 public class SaleController {
-	private static SaleController instance = null;
-	private Sale sale;
 	
-	private SaleController(){}
+	private Inventory inventory;
+	private SaleLedger sl;
 	
-	public static SaleController getInstance(){
-		if(instance == null){
-			instance = new SaleController();
-		}
-		return instance;
+	
+	public SaleController(Inventory inventory){
+		this.inventory = inventory;
 	}
 	
 	public boolean createSale(){
-		sale = Sale.getInstance();
-		if(sale!=null){
-			return true;
-		}
 		return false;
 	}
 	
 	public boolean addSaleLineItem(ItemDescription item){
-		if(sale.editSaleLineItem(item)){
-			return true;
-		}
 		return false;
 	}
 	
 	public boolean removeSaleLineItem(ItemDescription item){
-		if(sale.editSaleLineItem(item)){
-			return true;
-		}
 		return false;
 	}
 	
 	public boolean finishTransacTion(){
-		return sale.calculate();
+		return false;
 	}
 	
 	public boolean updateSaleLedger(){

@@ -20,8 +20,8 @@ public class Inventory {
 	 * @param name of item.
 	 * @return true if item is created in database, otherwise false.
 	 */
-	public boolean create( String _id , String name ) {
-		ItemDescription item = new ItemDescription(_id, name, 1);
+	public boolean create( String _id , String name , int quantity , String description , String unit , double price , double cost) {
+		ItemDescription item = new ItemDescription( name, quantity, description, unit, price, cost);
 		
 		if ( list.contains( item ) )
 			list.get( list.indexOf( item ) ).updateQuantity(1);
@@ -87,6 +87,7 @@ public class Inventory {
 	 */
 	public ItemDescription getItemById( String _id ) {
 		String [] data = dbc.select( _id );
-		return new ItemDescription( data[0] , data[1] , 0);
+		return new ItemDescription( data[1] , Integer.parseInt(data[2]) , data[3], data[4], Double.parseDouble(data[5]), Double.parseDouble(data[6]));
 	}
+	
 }
