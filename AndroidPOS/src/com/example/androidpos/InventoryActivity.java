@@ -30,7 +30,6 @@ public class InventoryActivity extends Activity {
 	}
 
 	private void initComponent() {
-		
 	}
 
 	@Override

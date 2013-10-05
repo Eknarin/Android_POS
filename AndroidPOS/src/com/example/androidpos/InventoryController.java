@@ -14,8 +14,8 @@ public class InventoryController {
 		return inventory.create(_id, name, quantity, description, unit, price, cost);
 	}
 
-	public boolean editItem( String _id , String name ) {
-		return inventory.edit(_id, name);
+	public boolean editItem( String name, String unit , double price , double cost) {
+		return inventory.edit(name, unit, price, cost);
 	}
 
 	public boolean removeItem( String _id ) {
@@ -24,6 +24,10 @@ public class InventoryController {
 
 	public String [] getItem( String _id ) {
 		return inventory.select(_id);
+	}
+	
+	public String [][] getAllItem() {
+		return inventory.selectAll();
 	}
 	
 	public String [][] getItemDescription() {

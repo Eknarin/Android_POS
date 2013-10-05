@@ -23,12 +23,23 @@ public class ItemDescription {
 	}
 	
 	public String [] getDescription() {
-		String [] data = new String[2];
+		String [] data = new String[6];
 		data[0] = this.name;
 		data[1] = ""+this.quantity;
+		data[2] = this.description;
+		data[3] = this.unit;
+		data[4] = ""+this.price;
+		data[5] = ""+this.cost;
 		return data;
 	}
 	
+	public boolean update(ItemDescription item) {
+		this.description = item.description;
+		this.unit = item.unit;
+		this.price = item.price;
+		this.cost = item.cost;
+		return true;
+	}
 
 	@Override
 	public boolean equals(Object obj) {
@@ -40,4 +51,5 @@ public class ItemDescription {
 		
 		return this.name == item.name;
 	}
+
 }
