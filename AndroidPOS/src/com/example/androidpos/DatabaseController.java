@@ -53,13 +53,47 @@ public class DatabaseController extends SQLiteOpenHelper {
 						data[i] = cursor.getString(i);
 				}
 			
-			/** Close database nad cursor. */
+			/** Close database and cursor. */
 			cursor.close();
 			db.close();
 			return data;
 		} catch (Exception e) {
 			return null;
 		}
+	}
+	
+	/**
+	 * Select all data from database.
+	 * @return all data from database, otherwise return null.
+	 */
+	public String[] selectAll() {
+		
+		try {
+			String [] data = null;
+			
+			SQLiteDatabase db = this.getReadableDatabase();
+			
+			String sql = "SELECT * FROM " + TABLE_NAME;
+			Cursor cursor = db.rawQuery(sql, null);
+					
+			if ( cursor != null )
+				if ( cursor.moveToFirst() ) {
+					data = new String[ cursor.getCount() ];
+					int i = 0;
+					do {
+						data[i] = cursor.getString(0) + cursor.getShort(1);
+						i++;
+					} while ( cursor.moveToNext() );
+				}
+			
+			/** Close database and cursor. */
+			cursor.close();
+			db.close();
+			return data;
+		} catch (Exception e) {
+			return null;
+		}
+		
 	}
 	
 	/**

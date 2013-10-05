@@ -79,9 +79,9 @@ public class InventoryActivity extends Activity {
 				
 				String item = "";
 				for ( String x : inc.getItem(_id ) )
-					item += x;
+					item += x + "";
 				
-				if ( item != null )
+				if ( item != "" )
 					Toast.makeText(InventoryActivity.this, "Select " + item , Toast.LENGTH_LONG).show();
 			}
 			
@@ -96,7 +96,6 @@ public class InventoryActivity extends Activity {
 		editButton = (Button) findViewById(R.id.editButton);
 		removeButton = (Button) findViewById(R.id.removeButton);
 		selectButton = (Button) findViewById(R.id.selectButton);
-		
 		inc = new InventoryController( new Inventory( new DatabaseController(this) ) );
 	}
 
