@@ -66,10 +66,10 @@ public class DatabaseController extends SQLiteOpenHelper {
 	 * Select all data from database.
 	 * @return all data from database, otherwise return null.
 	 */
-	public String[] selectAll() {
+	public String[][] selectAll() {
 		
 		try {
-			String[] data = null;
+			String[][] data = null;
 			
 			SQLiteDatabase db = this.getReadableDatabase();
 			
@@ -78,10 +78,11 @@ public class DatabaseController extends SQLiteOpenHelper {
 					
 			if ( cursor != null )
 				if ( cursor.moveToFirst() ) {
-					data = new String[ cursor.getCount() ];
+					data = new String[ cursor.getCount() ][2];
 					int i = 0;
 					do {
-						data[i] = cursor.getString(0) + "-" + cursor.getString(1);
+						data[i][0] = cursor.getString(0);
+						data[i][1] = cursor.getString(1);
 						i++;
 					} while ( cursor.moveToNext() );
 				}
