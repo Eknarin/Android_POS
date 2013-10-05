@@ -3,14 +3,14 @@ package com.example.androidpos;
 public class ItemDescription {
 
 	private String name;
-	private int ID;
+	private String ID;
 	private int quantity;
 	private String description;
 	private String unit;
 	private double price;
 	private double cost;
 	
-	public ItemDescription(String name, int ID, int quantity,
+	public ItemDescription(String name, String ID, int quantity,
 			String description, String unit, double price, double cost) {
 		this.name = name;
 		this.ID = ID;
