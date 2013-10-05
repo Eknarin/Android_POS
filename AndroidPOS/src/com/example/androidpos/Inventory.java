@@ -3,6 +3,9 @@ package com.example.androidpos;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+
 public class Inventory {
 	
 	private DatabaseHandler dbc;
@@ -96,6 +99,14 @@ public class Inventory {
 		return dbc.select( _id );
 	}
 
+	/**
+	 * Select all data from database.
+	 * @return all data from database, otherwise return null.
+	 */
+	public String[][] selectAll() {
+		return dbc.selectAll();	
+	}
+	
 	public String search() {
 		return null;
 	}

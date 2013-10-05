@@ -13,7 +13,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	
 	private static final String DATABASE_NAME = "POS_DATABASE";
 	
-	private static final String TABLE_NAME = "INVENTORY_TABLE";
+	private static final String INVENTORY_TABLE_NAME = "INVENTORY_TABLE";
 	
 	public DatabaseHandler(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -21,7 +21,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 	@Override
 	public void onCreate(SQLiteDatabase db) {
-		db.execSQL("CREATE TABLE " + TABLE_NAME + 
+		db.execSQL("CREATE TABLE " + INVENTORY_TABLE_NAME + 
 					"( _id INTEGER PRIMARY KEY," +
 					" name TEXT(100)," +
 					" quantity INTEGER," +
@@ -49,7 +49,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 			
 			SQLiteDatabase db = this.getReadableDatabase();
 			
-			Cursor cursor = db.query(TABLE_NAME, new String[] {"*"} , "_id = ?", new String [] { String.valueOf( _id ) }, null , null , null);
+			Cursor cursor = db.query(INVENTORY_TABLE_NAME, new String[] {"*"} , "_id = ?", new String [] { String.valueOf( _id ) }, null , null , null);
 			
 			if ( cursor != null )
 				if ( cursor.moveToFirst() ) {
@@ -79,7 +79,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 			
 			SQLiteDatabase db = this.getReadableDatabase();
 			
-			Cursor cursor = db.query(TABLE_NAME, new String[] {"*"} , "name = ?", new String [] { String.valueOf( _id ) }, null , null , null);
+			Cursor cursor = db.query(INVENTORY_TABLE_NAME, new String[] {"*"} , "name = ?", new String [] { String.valueOf( _id ) }, null , null , null);
 			
 			if ( cursor != null )
 				if ( cursor.moveToFirst() ) {
@@ -108,7 +108,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 			
 			SQLiteDatabase db = this.getReadableDatabase();
 			
-			String sql = "SELECT * FROM " + TABLE_NAME;
+			String sql = "SELECT * FROM " + INVENTORY_TABLE_NAME;
 			Cursor cursor = db.rawQuery(sql, null);
 					
 			if ( cursor != null )
@@ -154,7 +154,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 			values.put( "cost" , cost );
 			
 			/** Insert values to database. */
-			long rows = db.insert( TABLE_NAME , null , values );
+			long rows = db.insert( INVENTORY_TABLE_NAME , null , values );
 			
 			/** Close database. */
 			db.close();
@@ -184,7 +184,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 			values.put( "price" , price );
 			values.put( "cost" , cost );
 			
-			long rows = db.update(TABLE_NAME, values, "_id = ?", new String [] { String.valueOf(name) } );
+			long rows = db.update(INVENTORY_TABLE_NAME, values, "_id = ?", new String [] { String.valueOf(name) } );
 			
 			/** Close database. */
 			db.close();
@@ -206,7 +206,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 			/** Get database. */
 			SQLiteDatabase db = this.getWritableDatabase();
 			
-			long rows = db.delete(TABLE_NAME, "_id = ?", new String [] { String.valueOf(_id) } );
+			long rows = db.delete(INVENTORY_TABLE_NAME, "_id = ?", new String [] { String.valueOf(_id) } );
 			
 			/** Close database. */
 			db.close();

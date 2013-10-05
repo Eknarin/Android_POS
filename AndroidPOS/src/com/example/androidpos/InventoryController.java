@@ -26,6 +26,10 @@ public class InventoryController {
 		return inventory.select(_id);
 	}
 	
+	public String [][] getAllItem() {
+		return inventory.selectAll();
+	}
+	
 	public String [][] getItemDescription() {
 		List<ItemDescription> list = inventory.getItemDescriptionList();
 		String [][] data = new String[ list.size() ][3];
