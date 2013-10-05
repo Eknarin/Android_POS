@@ -69,7 +69,7 @@ public class DatabaseController extends SQLiteOpenHelper {
 	public String[] selectAll() {
 		
 		try {
-			String [] data = null;
+			String[] data = null;
 			
 			SQLiteDatabase db = this.getReadableDatabase();
 			
@@ -81,7 +81,7 @@ public class DatabaseController extends SQLiteOpenHelper {
 					data = new String[ cursor.getCount() ];
 					int i = 0;
 					do {
-						data[i] = cursor.getString(0) + cursor.getShort(1);
+						data[i] = cursor.getString(0) + "-" + cursor.getString(1);
 						i++;
 					} while ( cursor.moveToNext() );
 				}
